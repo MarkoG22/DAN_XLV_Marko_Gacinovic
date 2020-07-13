@@ -65,25 +65,30 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Models\tblArticle.cs">
-      <DependentUpon>WarehouseModel.tt</DependentUpon>
+      <DependentUpon>WarehouseModel1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\WarehouseModel.Context.cs">
+    <Compile Include="Models\WarehouseModel1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>WarehouseModel.Context.tt</DependentUpon>
+      <DependentUpon>WarehouseModel1.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\WarehouseModel.cs">
+    <Compile Include="Models\WarehouseModel1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>WarehouseModel.tt</DependentUpon>
+      <DependentUpon>WarehouseModel1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\WarehouseModel.Designer.cs">
+    <Compile Include="Models\WarehouseModel1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>WarehouseModel.edmx</DependentUpon>
+      <DependentUpon>WarehouseModel1.edmx</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\AddArticleViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
+    <Compile Include="ViewModel\ManagerViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
+    <Compile Include="View\AddArticleView.xaml.cs">
+      <DependentUpon>AddArticleView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ManagerView.xaml.cs">
       <DependentUpon>ManagerView.xaml</DependentUpon>
     </Compile>
@@ -103,6 +108,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\AddArticleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\ManagerView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -130,12 +139,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Models\WarehouseModel.edmx">
+    <EntityDeploy Include="Models\WarehouseModel1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>WarehouseModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>WarehouseModel1.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Models\WarehouseModel.edmx.diagram">
-      <DependentUpon>WarehouseModel.edmx</DependentUpon>
+    <None Include="Models\WarehouseModel1.edmx.diagram">
+      <DependentUpon>WarehouseModel1.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -147,17 +156,16 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Content Include="Models\WarehouseModel.Context.tt">
+    <Content Include="Models\WarehouseModel1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>WarehouseModel.Context.cs</LastGenOutput>
-      <DependentUpon>WarehouseModel.edmx</DependentUpon>
+      <DependentUpon>WarehouseModel1.edmx</DependentUpon>
+      <LastGenOutput>WarehouseModel1.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\WarehouseModel.tt">
+    <Content Include="Models\WarehouseModel1.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>WarehouseModel.edmx</DependentUpon>
-      <LastGenOutput>WarehouseModel.cs</LastGenOutput>
+      <DependentUpon>WarehouseModel1.edmx</DependentUpon>
+      <LastGenOutput>WarehouseModel1.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -16,14 +17,20 @@ using Warehouse.ViewModel;
 namespace Warehouse.View
 {
     /// <summary>
-    /// Interaction logic for ManagerView.xaml
+    /// Interaction logic for AddArticleView.xaml
     /// </summary>
-    public partial class ManagerView : Window
+    public partial class AddArticleView : Window
     {
-        public ManagerView()
+        public AddArticleView()
         {
             InitializeComponent();
-            this.DataContext = new ManagerViewModel(this);
+            this.DataContext = new AddArticleViewModel(this);
         }
+
+        private void NumbersTextBox(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }        
     }
 }

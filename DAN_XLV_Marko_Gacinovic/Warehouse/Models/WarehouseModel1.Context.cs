@@ -13,10 +13,10 @@ namespace Warehouse.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class WarehouseEntities : DbContext
+    public partial class WarehouseEntities1 : DbContext
     {
-        public WarehouseEntities()
-            : base("name=WarehouseEntities")
+        public WarehouseEntities1()
+            : base("name=WarehouseEntities1")
         {
         }
     

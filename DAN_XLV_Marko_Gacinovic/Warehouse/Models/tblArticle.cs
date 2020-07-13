@@ -18,7 +18,7 @@ namespace Warehouse.Models
         public string Article { get; set; }
         public string Code { get; set; }
         public Nullable<int> Amount { get; set; }
-        public Nullable<decimal> Price { get; set; }
+        public Nullable<int> Price { get; set; }
         public Nullable<bool> Stored { get; set; }
     }
 }
