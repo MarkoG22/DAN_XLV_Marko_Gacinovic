@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using Warehouse.Commands;
@@ -38,6 +34,7 @@ namespace Warehouse.ViewModel
             }
         }
 
+        // constructor
         public MainWindowViewModel(MainWindow mainOpen)
         {
             main = mainOpen;

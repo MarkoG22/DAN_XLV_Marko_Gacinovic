@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using Warehouse.Commands;
@@ -15,6 +13,7 @@ namespace Warehouse.ViewModel
     {
         StorekeeperView storekeeper;
 
+        // properties
         private List<tblArticle> listOfArticles;
         public List<tblArticle> ListOfArticles
         {
@@ -29,12 +28,14 @@ namespace Warehouse.ViewModel
             set { article = value; OnPropertyChanged("Article"); }
         }
 
+        // constructor
         public StorekeeperViewModel(StorekeeperView storekeeperOpen)
         {
             storekeeper = storekeeperOpen;
             ListOfArticles = GetAllArticles().ToList();
         }
 
+        // commands
         private ICommand storeArticle;
         public ICommand StoreArticle
         {
@@ -54,6 +55,9 @@ namespace Warehouse.ViewModel
             return true;
         }
 
+        /// <summary>
+        /// method for checking and storing the articles
+        /// </summary>
         private void StoreArticleExecute()
         {
             try
@@ -64,12 +68,14 @@ namespace Warehouse.ViewModel
                     int id = 0;
                     for (int i = 0; i < ListOfArticles.Count; i++)
                     {
+                        // checking if the article is already stored
                         if (ListOfArticles[i].Stored == true)
                         {
                             continue;
                         }
                         else
                         {
+                            // checking the amount of the article and displaying messages with delegate and event
                             if (ListOfArticles[i].Amount >100)
                             {
                                 d.WarehouseFull(ListOfArticles[i].Article);
@@ -95,6 +101,10 @@ namespace Warehouse.ViewModel
             }
         }
 
+        /// <summary>
+        /// method for getting all articles to the list
+        /// </summary>
+        /// <returns></returns>
         private List<tblArticle> GetAllArticles()
         {
             try

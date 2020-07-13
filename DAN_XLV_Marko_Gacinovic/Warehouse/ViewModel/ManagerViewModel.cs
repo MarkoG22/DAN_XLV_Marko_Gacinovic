@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using Warehouse.Commands;
@@ -15,6 +13,7 @@ namespace Warehouse.ViewModel
     {
         ManagerView manager;
 
+        // properties
         private List<tblArticle> listOfArticles;
         public List<tblArticle> ListOfArticles
         {
@@ -29,12 +28,14 @@ namespace Warehouse.ViewModel
             set { article = value; OnPropertyChanged("Article"); }
         }
 
+        // constructor
         public ManagerViewModel(ManagerView managerOpen)
         {
             manager = managerOpen;
             ListOfArticles = GetAllArticles().ToList();
         }
 
+        // commands
         private ICommand addNewArticle;
         public ICommand AddNewArticle
         {
@@ -53,6 +54,9 @@ namespace Warehouse.ViewModel
             return true;
         }
 
+        /// <summary>
+        /// method for opening the view for adding new article
+        /// </summary>
         private void AddNewArticleExecute()
         {
             try
@@ -70,7 +74,7 @@ namespace Warehouse.ViewModel
             }
         }
 
-        // command for editing the user
+        // command for editing the article
         private ICommand editArticle;
         public ICommand EditArticle
         {
@@ -97,7 +101,7 @@ namespace Warehouse.ViewModel
         }
 
         /// <summary>
-        /// method for opening the view for the editing user
+        /// method for opening the view for the editing article
         /// </summary>
         private void EditArticleExecute()
         {
@@ -116,7 +120,7 @@ namespace Warehouse.ViewModel
             }
         }
 
-        // command for deleting the user
+        // command for deleting the article
         private ICommand deleteArticle;
         public ICommand DeleteArticle
         {
@@ -143,7 +147,7 @@ namespace Warehouse.ViewModel
         }
 
         /// <summary>
-        /// method for deleting the user
+        /// method for deleting the article
         /// </summary>
         private void DeleteArticleExecute()
         {
@@ -151,16 +155,17 @@ namespace Warehouse.ViewModel
             {
                 using (WarehouseEntities1 context = new WarehouseEntities1())
                 {
-                    // geting the registration number of the user
+                    // geting the article id
                     int id = article.ArticleID;
 
+                    // checking if the article can be deleted
                     if (article.Stored == true)
                     {
                         MessageBox.Show("Article can not be deleted, because it is stored.");                        
                     }
                     else
                     {
-                        // confirmation for the action
+                        // confirmation for the action and deleting the article
                         MessageBoxResult messageBoxResult = MessageBox.Show("Are you sure you want to delete the article?", "Delete Confirmation", MessageBoxButton.YesNo);
 
                         if (messageBoxResult == MessageBoxResult.Yes)
@@ -182,6 +187,10 @@ namespace Warehouse.ViewModel
             }
         }
 
+        /// <summary>
+        /// method for getting all articles to the list
+        /// </summary>
+        /// <returns></returns>
         private List<tblArticle> GetAllArticles()
         {
             try

@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using Warehouse.Commands;
@@ -15,6 +12,7 @@ namespace Warehouse.ViewModel
     {
         AddArticleView addArticle;
 
+        // properties
         private tblArticle article;
         public tblArticle Article
         {
@@ -35,8 +33,8 @@ namespace Warehouse.ViewModel
                 OnPropertyChanged("Stored");
             }
         }
-
-
+        
+        // property for updating the table
         private bool isUpdateArticle;
         public bool IsUpdateArticle
         {
@@ -50,12 +48,14 @@ namespace Warehouse.ViewModel
             }
         }
 
+        // constructor
         public AddArticleViewModel(AddArticleView articleOpen)
         {
             article = new tblArticle();
             addArticle = articleOpen;
         }
 
+        // commands
         private ICommand save;
         public ICommand Save
         {
@@ -69,7 +69,9 @@ namespace Warehouse.ViewModel
             }
         }
 
-        
+        /// <summary>
+        /// method for adding the new article
+        /// </summary>
         private void SaveExecute()
         {
             try
@@ -84,7 +86,7 @@ namespace Warehouse.ViewModel
                     }
                     else
                     {
-                        MessageBox.Show("Wrong article name input, please try again.");
+                        MessageBox.Show("Wrong article name input, please edit.");
                     }
 
                     newArticle.Code = article.Code;

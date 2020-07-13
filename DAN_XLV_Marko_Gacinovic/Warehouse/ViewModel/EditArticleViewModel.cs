@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using Warehouse.Commands;
@@ -15,6 +12,7 @@ namespace Warehouse.ViewModel
     {
         EditArticleView editArticle;
 
+        // properties
         private tblArticle article;
         public tblArticle Article
         {
@@ -36,7 +34,6 @@ namespace Warehouse.ViewModel
             }
         }
 
-
         private bool isUpdateArticle;
         public bool IsUpdateArticle
         {
@@ -50,12 +47,14 @@ namespace Warehouse.ViewModel
             }
         }
 
+        // constructor
         public EditArticleViewModel(EditArticleView editArticleOpen, tblArticle tblArticle)
         {
             article = tblArticle;
             editArticle = editArticleOpen;
         }
 
+        // commands
         private ICommand save;
         public ICommand Save
         {
@@ -69,7 +68,9 @@ namespace Warehouse.ViewModel
             }
         }
 
-
+        /// <summary>
+        /// method for editing the article
+        /// </summary>
         private void SaveExecute()
         {
             try
@@ -78,6 +79,7 @@ namespace Warehouse.ViewModel
                 {
                     int id = article.ArticleID;
 
+                    // finding the article with the ID
                     tblArticle newArticle = (from x in context.tblArticles where x.ArticleID == id select x).First();                    
 
                     if (article.Article.All(Char.IsLetter))
