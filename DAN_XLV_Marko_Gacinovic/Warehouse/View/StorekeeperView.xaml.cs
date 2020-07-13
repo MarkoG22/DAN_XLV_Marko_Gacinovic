@@ -10,21 +10,20 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Warehouse.ViewModel;
 
-namespace Warehouse
+namespace Warehouse.View
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for StorekeeperView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class StorekeeperView : Window
     {
-        public MainWindow()
+        public StorekeeperView()
         {
             InitializeComponent();
-            this.DataContext = new MainWindowViewModel(this);
+            this.DataContext = new StorekeeperViewModel(this);
         }
     }
 }
