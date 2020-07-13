@@ -156,7 +156,7 @@ namespace Warehouse.ViewModel
 
                     if (article.Stored == true)
                     {
-                        MessageBox.Show("Article can not be deleted, because it is already stored.");                        
+                        MessageBox.Show("Article can not be deleted, because it is stored.");                        
                     }
                     else
                     {

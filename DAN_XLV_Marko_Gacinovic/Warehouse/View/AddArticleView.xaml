@@ -39,7 +39,7 @@
         <Label Grid.Column="1" Grid.Row="3" Name="lblCode" Content="Code: " Padding="0" HorizontalAlignment="Right"/>
         <Label Grid.Column="1" Grid.Row="5" Name="lblAmount" Content="Amount: " Padding="0" HorizontalAlignment="Right"/>
         <Label Grid.Column="1" Grid.Row="7" Name="lblPrice" Content="Price: " Padding="0" HorizontalAlignment="Right"/>
-        
+
 
         <TextBox Grid.Column="3" Grid.Row="1" Name="txtArticle" Height="20" Width="150"
                  Text="{Binding Article.Article, UpdateSourceTrigger=PropertyChanged}"/>
@@ -48,13 +48,14 @@
         <TextBox Grid.Column="3" Grid.Row="5" Name="txtAmount" Height="20" Width="150" 
                  Text="{Binding Article.Amount, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="NumbersTextBox" />
         <TextBox Grid.Column="3" Grid.Row="7" Name="txtPrice" Height="20" Width="150"
-                 Text="{Binding Article.Price, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="NumbersTextBox"/> 
+                 Text="{Binding Article.Price, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="NumbersTextBox"/>
 
-       
+
 
         <Button Grid.Column="3" Grid.Row="17" Name="btnSave" Content="Save" Height="20" Width="70" HorizontalAlignment="Left"
                 Command="{Binding Save, UpdateSourceTrigger=PropertyChanged}"/>
         <Button Grid.Column="3" Grid.Row="17" Name="btnClose" Content="Close" Height="20" Width="70" HorizontalAlignment="Right"
                 Command="{Binding Close, UpdateSourceTrigger=PropertyChanged}"/>
+        <Label Content="Din" Grid.Column="4" Margin="4,1.4,-15.2,0" Grid.Row="6" VerticalAlignment="Top" Height="27" FontSize="16" Grid.RowSpan="3" Grid.ColumnSpan="3"/>
     </Grid>
 </Window>

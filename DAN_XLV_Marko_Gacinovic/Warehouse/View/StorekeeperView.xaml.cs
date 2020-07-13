@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Warehouse.ViewModel;
 
 namespace Warehouse.View
 {
@@ -22,6 +23,7 @@ namespace Warehouse.View
         public StorekeeperView()
         {
             InitializeComponent();
+            this.DataContext = new StorekeeperViewModel(this);
         }
     }
 }

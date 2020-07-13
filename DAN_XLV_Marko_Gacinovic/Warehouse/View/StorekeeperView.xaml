@@ -7,6 +7,34 @@
         mc:Ignorable="d"
         Title="StorekeeperView" Height="450" Width="800">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Column="1" Grid.Row="1" Height="auto" Width="auto">
+            <DataGrid Name="DataGridUsers" ItemsSource="{Binding ListOfArticles, UpdateSourceTrigger=PropertyChanged}"
+                      SelectedItem="{Binding Article, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" HeadersVisibility="Column"
+                      AutoGenerateColumns="False"
+                      HorizontalGridLinesBrush="Black" BorderBrush="Black" Foreground="Black"
+                      FontWeight="Bold" Margin="20">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID" Binding="{Binding ArticleID}"/>
+                    <DataGridTextColumn Header="Article" Binding="{Binding Article}"/>
+                    <DataGridTextColumn Header="Code" Binding="{Binding Code}"/>
+                    <DataGridTextColumn Header="Amount" Binding="{Binding Amount}"/>
+                    <DataGridTextColumn Header="Price" Binding="{Binding Price}"/>
+                    <DataGridTextColumn Header="Stored" Binding="{Binding Stored}"/>                    
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+        <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Horizontal">
+            <Button Width="80" Height="20" Name="btnStoreArticle" Content="Store Articles"
+                    Command="{Binding StoreArticle, UpdateSourceTrigger=PropertyChanged}" Margin="20,4,4,4" FontWeight="Bold"/>
+        </StackPanel>
     </Grid>
 </Window>

@@ -64,6 +64,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Delegate.cs" />
     <Compile Include="Models\tblArticle.cs">
       <DependentUpon>WarehouseModel1.tt</DependentUpon>
     </Compile>
@@ -86,6 +87,7 @@
     <Compile Include="ViewModel\EditArticleViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Compile Include="ViewModel\ManagerViewModel.cs" />
+    <Compile Include="ViewModel\StorekeeperViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="View\AddArticleView.xaml.cs">
       <DependentUpon>AddArticleView.xaml</DependentUpon>
