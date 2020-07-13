@@ -11,9 +11,9 @@ using Warehouse.View;
 
 namespace Warehouse.ViewModel
 {
-    class AddArticleViewModel : ViewModelBase
+    class EditArticleViewModel : ViewModelBase
     {
-        AddArticleView addArticle;
+        EditArticleView editArticle;
 
         private tblArticle article;
         public tblArticle Article
@@ -50,10 +50,10 @@ namespace Warehouse.ViewModel
             }
         }
 
-        public AddArticleViewModel(AddArticleView articleOpen)
+        public EditArticleViewModel(EditArticleView editArticleOpen, tblArticle tblArticle)
         {
-            article = new tblArticle();
-            addArticle = articleOpen;
+            article = tblArticle;
+            editArticle = editArticleOpen;
         }
 
         private ICommand save;
@@ -69,14 +69,16 @@ namespace Warehouse.ViewModel
             }
         }
 
-        
+
         private void SaveExecute()
         {
             try
             {
                 using (WarehouseEntities1 context = new WarehouseEntities1())
                 {
-                    tblArticle newArticle = new tblArticle();
+                    int id = article.ArticleID;
+
+                    tblArticle newArticle = (from x in context.tblArticles where x.ArticleID == id select x).First();                    
 
                     if (article.Article.All(Char.IsLetter))
                     {
@@ -93,12 +95,12 @@ namespace Warehouse.ViewModel
                     newArticle.Stored = false;
                     newArticle.ArticleID = article.ArticleID;
 
-                    context.tblArticles.Add(newArticle);
+                    
                     context.SaveChanges();
 
                     IsUpdateArticle = true;
                 }
-                addArticle.Close();
+                editArticle.Close();
             }
             catch (Exception)
             {
@@ -139,7 +141,7 @@ namespace Warehouse.ViewModel
         {
             try
             {
-                addArticle.Close();
+                editArticle.Close();
             }
             catch (Exception ex)
             {

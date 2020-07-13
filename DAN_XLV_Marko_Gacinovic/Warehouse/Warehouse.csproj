@@ -83,11 +83,15 @@
       <DependentUpon>WarehouseModel1.edmx</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\AddArticleViewModel.cs" />
+    <Compile Include="ViewModel\EditArticleViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Compile Include="ViewModel\ManagerViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="View\AddArticleView.xaml.cs">
       <DependentUpon>AddArticleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EditArticleView.xaml.cs">
+      <DependentUpon>EditArticleView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ManagerView.xaml.cs">
       <DependentUpon>ManagerView.xaml</DependentUpon>
@@ -109,6 +113,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\AddArticleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EditArticleView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
